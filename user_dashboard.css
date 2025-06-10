@@ -1,0 +1,768 @@
+/* user_dashboard.css */
+
+:root {
+    --primary-purple: #7B68EE;
+    --light-purple: #F5F0FF;
+    --text-dark: #333;
+    --text-light-grey: #666;
+    --border-grey: #E0E0E0;
+    --bg-light-grey: #F8F8F8;
+    --card-bg: #FFFFFF;
+    --input-bg-color: #fcfcfc;
+    --border-radius: 8px;
+    --border-radius-lg: 12px;
+    --shadow-sm: 0 2px 5px rgba(0,0,0,0.05);
+    --shadow-lg: 0 5px 15px rgba(0,0,0,0.1);
+
+    /* Tag colors */
+    --tag-makeup: #D8F2E2;
+    --tag-makeup-text: #37A24A;
+    --tag-dokumentasi: #E0DFFC;
+    --tag-dokumentasi-text: #6A5AE0;
+    --tag-venue: #FFD4D2;
+    --tag-venue-text: #EE5B5B;
+    --tag-katering: #D4EBFD;
+    --tag-katering-text: #4A90E2;
+    --tag-hiburan: #FFECC7;
+    --tag-hiburan-text: #EEAA00;
+    --tag-souvenir: #DBF4F7;
+    --tag-souvenir-text: #00B2CA;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-light-grey);
+    display: flex;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #FFFFFF;
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-right: 1px solid var(--border-grey);
+    position: relative;
+    min-height: 100vh;
+}
+
+.sidebar-header {
+    padding: 0 30px;
+    margin-bottom: 50px;
+    width: 100%;
+    text-align: center;
+}
+.sidebar-header h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 2.2em;
+    color: var(--primary-purple);
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.nav-menu {
+    width: 100%;
+    flex-grow: 1;
+    list-style: none;
+    padding: 0;
+}
+
+.nav-item {
+    margin-bottom: 10px;
+}
+
+.nav-link {
+    display: block;
+    padding: 15px 30px;
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border-radius: 0 25px 25px 0;
+    position: relative;
+}
+
+.nav-link.active {
+    background-color: var(--light-purple);
+    color: var(--primary-purple);
+    font-weight: 600;
+}
+
+.nav-link.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 100%;
+    background-color: var(--primary-purple);
+    border-radius: 0 3px 3px 0;
+}
+
+.nav-link:hover:not(.active) {
+    background-color: var(--bg-light-grey);
+    color: var(--primary-purple);
+}
+
+.sidebar-footer {
+    padding: 20px 30px;
+    width: 100%;
+}
+
+.logout-button {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #fce8e8;
+    color: #c53929;
+    border: 1px solid #f2b9b3;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.logout-button:hover {
+    background-color: #f8deda;
+    color: #a52d20;
+    border-color: #e6a096;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    background-color: var(--bg-light-grey);
+}
+
+.main-content .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    background-color: var(--card-bg);
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.main-content .header h2 {
+    font-size: 1.8em;
+    color: var(--text-dark);
+    font-weight: 600;
+    margin: 0;
+}
+
+.user-profile-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-profile-actions .user-greeting-text {
+    font-size: 1.1em;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.user-profile-actions .avatar-profile-link {
+    text-decoration: none;
+    display: block;
+}
+
+.user-profile-actions .avatar-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-purple);
+    border-radius: 50%;
+    border: 2px solid var(--primary-purple);
+}
+.user-profile-actions .avatar-icon:hover {
+    opacity: 0.8;
+}
+
+
+/* Overview Cards */
+.overview-cards {
+    display: grid;
+    /* Adjusted minmax to allow for smaller overall card size */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* CRUCIAL: Changed minmax to 180px */
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 25px;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-grey);
+}
+
+.overview-cards .card {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 0; /* Reset padding for general card, will apply specific padding later */
+    box-shadow: none;
+    border: 1px solid var(--border-grey);
+}
+
+/* Event Countdown Card Specific Styling */
+.event-countdown {
+    background-color: var(--light-purple);
+    color: var(--primary-purple);
+    min-height: 180px; /* Keep this card taller */
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px; /* Keep padding for this specific card */
+    display: flex;
+}
+
+/* Specific styling for Total Anggaran and Tamu Hadir cards */
+.overview-cards .card:not(.event-countdown) {
+    display: flex;
+    flex-direction: row; /* Keep horizontal layout */
+    align-items: center; /* Vertically center items */
+    gap: 10px; /* Space between icon and details */
+    padding: 12px 15px; /* CRUCIAL: Adjusted padding to make card smaller (was 10px 20px) */
+    min-height: 60px; /* CRUCIAL: Reduced min-height (was 70px) */
+    /* text-align: left; Not needed here, handled by .details */
+}
+
+
+/* Icon Wrapper for Total Anggaran and Tamu Hadir */
+.total-budget .icon-wrapper,
+.guests-invited .icon-wrapper {
+    background-color: var(--light-purple);
+    border-radius: 50%;
+    width: 30px; /* CRUCIAL: Reduced size for icon wrapper (was 35px) */
+    height: 30px; /* CRUCIAL: Reduced size for icon wrapper (was 35px) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Icons within wrapper for Total Anggaran */
+.total-budget .icon {
+    font-size: 1em; /* CRUCIAL: Reduced icon size (was 1.1em) */
+    color: var(--primary-purple);
+}
+
+/* People icon details for Tamu Hadir */
+.guests-invited .icon.people-icon {
+    position: relative;
+    width: 14px; /* CRUCIAL: Reduced body width (was 16px) */
+    height: 8px; /* CRUCIAL: Reduced body height (was 9px) */
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    background-color: var(--primary-purple);
+    margin-top: 4px; /* Adjusted margin-top */
+}
+
+.guests-invited .icon.people-icon::before {
+    content: '';
+    position: absolute;
+    top: -5px; /* Adjusted head position (was -6px) */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px; /* CRUCIAL: Reduced head size (was 9px) */
+    height: 8px; /* CRUCIAL: Reduced head size (was 9px) */
+    border-radius: 50%;
+    background-color: var(--primary-purple);
+}
+.guests-invited .icon.people-icon::after {
+    content: '';
+    position: absolute;
+    top: -5px; /* Adjusted second head position (was -6px) */
+    left: 20%;
+    transform: translateX(-50%);
+    width: 6px; /* CRUCIAL: Reduced second head size (was 7px) */
+    height: 6px; /* CRUCIAL: Reduced second head size (was 7px) */
+    border-radius: 50%;
+    background-color: var(--primary-purple);
+    opacity: 0.7;
+}
+
+/* Details section for Total Anggaran and Tamu Hadir */
+.total-budget .details,
+.guests-invited .details {
+    display: flex;
+    flex-direction: column; /* Stack label and amount/count vertically */
+    align-items: flex-start; /* Align text to left */
+    flex-grow: 1;
+    text-align: left;
+    white-space: nowrap; /* Prevent text from wrapping prematurely */
+    overflow: hidden; /* Hide overflow if text is too long */
+    text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+}
+
+/* Amount and Count text for Total Anggaran and Tamu Hadir */
+.total-budget .amount,
+.guests-invited .count {
+    font-size: 1em; /* CRUCIAL: Reduced font size for the numbers/amounts (was 1.1em) */
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.2;
+    margin-top: 0;
+}
+
+/* Label text for Total Anggaran and Tamu Hadir */
+.total-budget .label,
+.guests-invited .label {
+    font-size: 0.65em; /* CRUCIAL: Reduced font size for labels (was 0.7em) */
+    color: var(--text-light-grey);
+    margin-top: 2px;
+}
+
+
+.event-countdown .date-display-wrapper {
+    margin-bottom: 15px;
+}
+
+.event-countdown .date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    min-width: 100px;
+}
+
+.event-countdown .date .day {
+    font-size: 2.2em;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--primary-purple);
+}
+
+.event-countdown .date .month {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--primary-purple);
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+
+.event-countdown .date .year {
+    font-size: 0.9em;
+    font-weight: 500;
+    color: var(--primary-purple);
+    opacity: 0.8;
+}
+
+.event-countdown .countdown {
+    margin-bottom: 20px;
+}
+
+.event-countdown .countdown .days-left {
+    font-size: 3.5em;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--text-dark);
+}
+
+.event-countdown .countdown .label {
+    display: block;
+    font-size: 1em;
+    color: var(--text-light-grey);
+    margin-top: 5px;
+}
+
+.event-countdown .btn-set-wedding-date {
+    background-color: var(--primary-purple);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.event-countdown .btn-set-wedding-date:hover {
+    background-color: #6A5ACD;
+    transform: translateY(-1px);
+}
+
+.event-countdown .btn-set-wedding-date:active {
+    transform: translateY(0);
+}
+
+
+/* Sections Container (Vendor and Task) */
+.sections-container {
+    display: flex;
+    gap: 20px;
+}
+
+.vendor-section,
+.task-section {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    flex: 1;
+    border: 1px solid var(--border-grey);
+}
+
+.vendor-section h3,
+.task-section h3 {
+    font-size: 1.5em;
+    color: var(--text-dark);
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Vendor List */
+.vendor-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.vendor-item-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.vendor-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-grey);
+    transition: background-color 0.2s ease;
+}
+
+.vendor-item:hover {
+    background-color: var(--bg-light-grey);
+    border-radius: 4px;
+}
+
+.vendor-item:last-child {
+    border-bottom: none;
+}
+
+.vendor-item .vendor-name {
+    font-size: 1em;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.vendor-item .tags {
+    display: flex;
+    gap: 8px;
+}
+
+.tag {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Tag specific colors */
+.tag.catering, .tag.katering {
+    background-color: var(--tag-katering);
+    color: var(--tag-katering-text);
+}
+
+.tag.venue, .tag.gedung {
+    background-color: var(--tag-venue);
+    color: var(--tag-venue-text);
+}
+
+.tag.makeup, .tag.rias {
+    background-color: var(--tag-makeup);
+    color: var(--tag-makeup-text);
+}
+
+.tag.dokumentasi, .tag.fotografer {
+    background-color: var(--tag-dokumentasi);
+    color: var(--tag-dokumentasi-text);
+}
+
+.tag.hiburan, .tag.entertainment, .tag.soundsystem {
+    background-color: var(--tag-hiburan);
+    color: var(--tag-hiburan-text);
+}
+
+.tag.souvenir {
+    background-color: var(--tag-souvenir);
+    color: var(--tag-souvenir-text);
+}
+
+.tag.undangan {
+    background-color: #e0e7ff;
+    color: #3730a3;
+}
+
+.tag.bunga,
+.tag:not([class*="catering"]):not([class*="katering"]):not([class*="dekorasi"]):not([class*="dokumentasi"]):not([class*="venue"]):not([class*="gedung"]):not([class*="makeup"]):not([class*="rias"]):not([class*="hiburan"]):not([class*="entertainment"]):not([class*="soundsystem"]):not([class*="souvenir"]):not([class*="undangan"]):not([class*="fotografer"]) {
+    background-color: #fce7f3;
+    color: #be185d;
+}
+
+/* Task List */
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.task-item input[type="radio"],
+.task-item input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border-grey);
+    border-radius: 50%;
+    margin-right: 0;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.task-item input[type="checkbox"] {
+    border-radius: 4px;
+}
+
+
+.task-item input[type="radio"]:checked,
+.task-item input[type="checkbox"]:checked {
+    border-color: var(--primary-purple);
+    background-color: var(--primary-purple);
+}
+
+.task-item input[type="radio"]:checked::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.task-item input[type="checkbox"]:checked::before {
+    content: '✔';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    color: white;
+    line-height: 1;
+}
+
+.task-item label {
+    font-size: 1em;
+    color: var(--text-dark);
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 20px 0;
+        border-right: none;
+        border-bottom: 1px solid var(--border-grey);
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 20px;
+        min-height: auto;
+    }
+
+    .sidebar .sidebar-header {
+        margin-bottom: 0;
+        padding: 0 20px;
+    }
+
+    .sidebar .nav-menu {
+        flex-grow: 0;
+        width: auto;
+    }
+
+    .sidebar .nav-menu ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding-left: 20px;
+    }
+
+    .sidebar .nav-menu ul li a {
+        padding: 10px 15px;
+        border-radius: 8px;
+        margin-right: 10px;
+    }
+
+    .sidebar .nav-menu ul li a.active::before {
+        display: none;
+    }
+
+    .sidebar-footer {
+        width: auto;
+        padding: 0 20px;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    .overview-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .sections-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .overview-cards .card {
+        flex-direction: column; /* Default back to column for smaller screens */
+        align-items: flex-start;
+        gap: 15px;
+        padding: 20px;
+    }
+    /* Override for specific cards on smaller screens if still needed */
+    .overview-cards .card:not(.event-countdown) {
+        flex-direction: row; /* Keep them row-like on smaller screens */
+        align-items: center;
+        gap: 15px;
+        padding: 15px 20px; /* Adjust padding */
+    }
+
+
+    .overview-cards .card.event-countdown {
+        align-items: center;
+        text-align: center;
+    }
+
+    .overview-cards .card.event-countdown .countdown {
+        text-align: center;
+    }
+
+    .vendor-item .tags {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar .sidebar-header h1 {
+        font-size: 1.8em;
+    }
+
+    .sidebar .nav-menu ul li a {
+        font-size: 0.9em;
+        padding: 8px 12px;
+    }
+
+    .logout-button {
+        font-size: 0.9em;
+        padding: 10px 15px;
+    }
+
+    .main-content .header h2 {
+        font-size: 1.5em;
+    }
+
+    .user-profile-actions .user-greeting-text {
+        font-size: 0.9em;
+    }
+
+    .user-profile-actions .avatar-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .overview-cards .card .details .amount,
+    .overview-cards .card .details .count {
+        font-size: 1.2em; /* Even smaller for very small screens */
+    }
+
+    .vendor-section h3,
+    .task-section h3 {
+        font-size: 1.3em;
+    }
+
+    .vendor-item .vendor-name,
+    .task-item label {
+        font-size: 0.9em;
+    }
+
+    .vendor-item .tag {
+        font-size: 0.7em;
+        padding: 4px 8px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.3em;
+    }
+
+    .modal-form input[type="date"],
+    .modal-form .btn-primary {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+}

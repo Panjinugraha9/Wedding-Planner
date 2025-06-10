@@ -1,0 +1,174 @@
+/* ==================================================== */
+/* rundown_page.css (Gaya khusus untuk Halaman Rundown) */
+/* ==================================================== */
+
+.rundown-page-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Header (Tombol Tambah & Cari) */
+.rundown-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-grey);
+    border-radius: 12px;
+}
+
+.btn-add-agenda {
+    background-color: var(--primary-purple);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.rundown-controls input[type="text"] {
+    width: 300px;
+    padding: 12px 15px;
+    border: 1px solid var(--border-grey);
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* Tabel Rundown */
+.rundown-table-container {
+    padding: 25px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-grey);
+    border-radius: 12px;
+}
+
+.rundown-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.rundown-table th, .rundown-table td {
+    padding: 12px 15px; /* PERBAIKAN: Spasi atas-bawah dikecilkan menjadi 12px */
+    text-align: left;
+    border-bottom: 1px solid var(--border-grey);
+    vertical-align: middle;
+}
+
+.rundown-table th {
+    font-weight: 600;
+    font-size: 0.9em;
+    color: var(--text-light-grey);
+    text-transform: uppercase;
+}
+
+.rundown-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.rundown-table .action-cell {
+    width: 120px;
+    text-align: right;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+.btn-edit, .btn-delete-rundown {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+.btn-edit:hover, .btn-delete-rundown:hover {
+    background-color: var(--bg-light-grey);
+}
+.btn-edit svg, .btn-delete-rundown svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--text-light-grey);
+    transition: fill 0.2s ease;
+}
+.btn-edit:hover svg { fill: var(--primary-purple); }
+.btn-delete-rundown:hover svg { fill: #EE5B5B; }
+
+
+/* Halaman Tambah/Edit Agenda */
+.form-container {
+    padding: 25px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-grey);
+    border-radius: 12px;
+}
+
+.form-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.back-button {
+    font-size: 2em;
+    color: var(--text-dark);
+    text-decoration: none;
+    line-height: 1;
+}
+
+.form-header h3 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.agenda-form .form-group {
+    margin-bottom: 20px;
+}
+.agenda-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+.agenda-form input[type="time"],
+.agenda-form input[type="text"],
+.agenda-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-grey);
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+.agenda-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+.btn-simpan {
+    background-color: var(--primary-purple);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}

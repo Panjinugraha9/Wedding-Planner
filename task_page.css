@@ -1,0 +1,87 @@
+/* ================================================= */
+/* task_page.css (Gaya khusus untuk Halaman Tugas)   */
+/* ================================================= */
+
+.task-list-container {
+    padding: 25px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-grey);
+    border-radius: 12px;
+}
+
+.task-list-dynamic { 
+    list-style: none; 
+    padding: 0; 
+    margin: 0;
+}
+
+.task-item-dynamic {
+    display: flex; 
+    align-items: center; 
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--border-grey); 
+    gap: 12px;
+}
+
+.task-item-dynamic:last-child { 
+    border-bottom: none; 
+}
+
+.task-item-dynamic input[type="checkbox"] { 
+    width: 20px; 
+    height: 20px; 
+    cursor: pointer; 
+    flex-shrink: 0;
+}
+
+.task-item-dynamic .task-name {
+    flex-grow: 1; 
+    border: none; 
+    background: transparent;
+    font-size: 16px; 
+    padding: 5px; 
+    color: var(--text-dark);
+}
+
+.task-item-dynamic .task-name.completed { 
+    text-decoration: line-through; 
+    color: var(--text-light-grey); 
+}
+
+.task-item-dynamic .delete-task-btn {
+    background: #e74c3c; 
+    color: white; 
+    border: none;
+    padding: 5px 10px; 
+    border-radius: 5px; 
+    cursor: pointer;
+    opacity: 0; 
+    transition: opacity 0.2s;
+}
+
+.task-item-dynamic:hover .delete-task-btn { 
+    opacity: 1; 
+}
+
+.add-task-form { 
+    display: flex; 
+    gap: 10px; 
+    margin-top: 20px; 
+}
+
+.add-task-form input[type="text"] { 
+    flex-grow: 1; 
+    padding: 12px 15px;
+    border: 1px solid var(--border-grey);
+    border-radius: 8px;
+}
+
+.add-task-form button {
+    background-color: var(--primary-purple);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+}

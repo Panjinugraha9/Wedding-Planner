@@ -1,0 +1,151 @@
+/* ================================================= */
+/* guest_page.css (Gaya khusus untuk Halaman Tamu) */
+/* ================================================= */
+
+.guest-page-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Form Tambah & Pencarian */
+.guest-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-grey);
+    border-radius: 12px;
+}
+
+.guest-controls .add-guest-form {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.guest-controls input[type="text"],
+.guest-controls input[type="tel"] {
+    padding: 12px 15px;
+    border: 1px solid var(--border-grey);
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+}
+
+.guest-controls .add-guest-form input[type="text"] {
+    width: 300px;
+}
+
+.guest-controls .btn-add-guest {
+    background-color: var(--primary-purple);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.guest-controls .search-counter-wrapper {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.guest-controls .search-counter-wrapper input[type="text"] {
+    width: 250px;
+}
+
+.guest-controls .guest-counter {
+    background-color: var(--primary-purple);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+
+/* Tabel Daftar Tamu */
+.guest-table-container {
+    padding: 25px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-grey);
+    border-radius: 12px;
+}
+
+.guest-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.guest-table th, .guest-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-grey);
+    vertical-align: middle;
+}
+
+.guest-table th {
+    font-weight: 600;
+    font-size: 0.9em;
+    color: var(--text-light-grey);
+    text-transform: uppercase;
+}
+
+.guest-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Status Kehadiran & Aksi */
+.status-form select {
+    padding: 8px 12px;
+    border: 1px solid var(--border-grey);
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-position: right 15px center;
+    background-repeat: no-repeat;
+    background-size: 12px;
+    padding-right: 40px;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.6-3.6%205.4-7.9%205.4-12.9%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E');
+}
+
+.status-form select.status-diundang { background-color: #F0F0F0; color: #666; }
+.status-form select.status-hadir { background-color: var(--tag-makeup); color: var(--tag-makeup-text); }
+.status-form select.status-tidak-hadir { background-color: var(--tag-venue); color: var(--tag-venue-text); }
+
+.action-cell {
+    width: 60px;
+    text-align: center;
+}
+.btn-delete {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+.btn-delete:hover { background-color: var(--bg-light-grey); }
+.btn-delete svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--text-light-grey);
+    transition: fill 0.2s ease;
+}
+.btn-delete:hover svg { fill: #EE5B5B; }

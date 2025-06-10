@@ -1,0 +1,230 @@
+/* ==================================================================== */
+/* vendor_page.css (VERSI FINAL DENGAN JARAK ANTAR SEKSI)             */
+/* ==================================================================== */
+
+.vendor-page-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Kontrol Atas (Search & Filter) */
+.vendor-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-grey);
+    border-radius: 12px;
+}
+
+.vendor-controls .search-form {
+    flex-grow: 1;
+}
+
+.vendor-controls input[type="text"],
+.vendor-controls select {
+    padding: 12px 15px;
+    border: 1px solid var(--border-grey);
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.vendor-controls input[type="text"] {
+    width: 100%;
+}
+
+.vendor-controls .filter-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.vendor-controls .filter-form label {
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+/* Daftar Vendor */
+.vendor-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.vendor-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-grey);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease;
+}
+.vendor-card:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+}
+
+.vendor-card-summary {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 25px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.vendor-card-summary:hover {
+    background-color: #fafafa;
+}
+
+.vendor-card .vendor-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    background: var(--light-purple);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--primary-purple);
+    flex-shrink: 0;
+}
+
+.vendor-card .vendor-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.vendor-card .vendor-info h3 {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.vendor-card .vendor-rating-summary {
+    font-size: 0.9em;
+    color: var(--text-light-grey);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.vendor-card .vendor-rating-summary .stars {
+    color: #ffc107;
+    font-size: 1.1em;
+}
+
+/* Tag Kategori Berwarna */
+.vendor-card .vendor-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 5px;
+}
+.vendor-card .tag {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+.tag.catering, .tag.katering { background-color: var(--tag-katering); color: var(--tag-katering-text); }
+.tag.venue, .tag.gedung { background-color: var(--tag-venue); color: var(--tag-venue-text); }
+.tag.makeup, .tag.rias { background-color: var(--tag-makeup); color: var(--tag-makeup-text); }
+.tag.dokumentasi, .tag.fotografer { background-color: var(--tag-dokumentasi); color: var(--tag-dokumentasi-text); }
+.tag.hiburan, .tag.entertainment, .tag.soundsystem { background-color: var(--tag-hiburan); color: var(--tag-hiburan-text); }
+.tag.souvenir { background-color: var(--tag-souvenir); color: var(--tag-souvenir-text); }
+.tag.undangan { background-color: #e0e7ff; color: #3730a3; }
+.tag.bunga, .tag.dekorasi { background-color: #fce7f3; color: #be185d; }
+.tag:not([class*="catering"]):not([class*="katering"]):not([class*="dekorasi"]):not([class*="dokumentasi"]):not([class*="venue"]):not([class*="gedung"]):not([class*="makeup"]):not([class*="rias"]):not([class*="hiburan"]):not([class*="entertainment"]):not([class*="soundsystem"]):not([class*="souvenir"]):not([class*="undangan"]):not([class*="fotografer"]):not([class*="bunga"]) {
+    background-color: #e5e7eb; color: #374151;
+}
+
+/* Detail Card (yang bisa dibuka-tutup) */
+.vendor-card-detail {
+    padding: 25px;
+    border-top: 1px solid var(--border-grey);
+    background-color: #fdfdfd;
+    display: none;
+}
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.detail-section h4 {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-grey);
+}
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.95em;
+    margin-bottom: 12px;
+}
+.info-item svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--text-light-grey);
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+.info-item a {
+    color: var(--primary-purple);
+    text-decoration: none;
+    font-weight: 500;
+}
+.info-item a:hover { text-decoration: underline; }
+
+/* Form Rating & Ulasan */
+.rating-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-grey);
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    min-height: 80px;
+    resize: vertical;
+    margin-top: 10px;
+}
+.rating-form .btn-submit-rating {
+    background-color: var(--primary-purple);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    margin-top: 10px;
+}
+.star-rating { direction: rtl; display: inline-block; }
+.star-rating input { display: none; }
+.star-rating label { color: #ddd; cursor: pointer; font-size: 1.8em; padding: 0 2px; -webkit-text-stroke: 0.5px #6c757d; }
+.star-rating label:hover, .star-rating label:hover ~ label, .star-rating input:checked ~ label { color: #ffc107; -webkit-text-stroke: 0.5px #ffc107; }
+
+.reviews-section {
+    margin-top: 30px; /* <-- PERBAIKAN ADA DI SINI */
+    padding-top: 25px;
+    border-top: 1px solid var(--border-grey);
+}
+.review-item {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 15px 0;
+}
+.review-item:first-child { padding-top: 0; }
+.review-item:last-child { border-bottom: none; padding-bottom: 0; }
+.review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+.reviewer-name { font-weight: 600; }
+.review-date { font-size: 0.85em; color: var(--text-light-grey); }
+.review-stars { color: #ffc107; margin-bottom: 8px; }
+.review-text { margin: 0; color: #555; }

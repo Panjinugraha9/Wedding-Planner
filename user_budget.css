@@ -1,0 +1,276 @@
+/* ==================================================================== */
+/* user_budget.css (VERSI FINAL LENGKAP)                               */
+/* ==================================================================== */
+
+/* Tata letak utama halaman budget */
+.content-area > div {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* 1. Area Ringkasan Atas */
+.budget-summary-fullscreen {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 25px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-grey);
+    border-radius: 12px;
+}
+
+.budget-summary-fullscreen .summary-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid var(--border-grey);
+    border-radius: 10px;
+}
+
+.budget-summary-fullscreen .icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-purple);
+    flex-shrink: 0;
+}
+
+.budget-summary-fullscreen .icon-wrapper .icon {
+    font-size: 1.8em;
+    color: var(--primary-purple);
+    font-weight: 600;
+}
+
+.budget-summary-fullscreen .details {
+    display: flex;
+    flex-direction: column;
+}
+
+.budget-summary-fullscreen .details .label {
+    font-size: 0.9em;
+    color: var(--text-light-grey);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.budget-summary-fullscreen .details .amount {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.btn-edit-target {
+    background: none;
+    border: 1px solid var(--border-grey);
+    color: var(--text-light-grey);
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8em;
+    font-weight: 500;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.btn-edit-target:hover {
+    background-color: var(--bg-light-grey);
+    border-color: #ccc;
+}
+
+/* 2. Area Tabel Rincian */
+.budget-table-container {
+    padding: 25px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-grey);
+    border-radius: 12px;
+}
+
+.budget-table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.budget-table-header h3 {
+    font-size: 1.5em;
+    color: var(--text-dark);
+    font-weight: 600;
+    margin: 0;
+}
+
+.budget-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.budget-table th,
+.budget-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-grey);
+    vertical-align: middle;
+}
+
+.budget-table th {
+    font-weight: 600;
+    font-size: 0.9em;
+    color: var(--text-light-grey);
+    text-transform: uppercase;
+}
+
+.budget-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* PERBAIKAN FINAL UNTUK TOMBOL DELETE */
+.budget-table .action-cell {
+    width: 60px;
+    padding: 0 8px; /* Beri sedikit padding horizontal */
+    text-align: center;
+}
+
+.budget-table .action-cell form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+}
+
+.budget-table .btn-delete {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.budget-table .btn-delete:hover {
+    background-color: var(--bg-light-grey);
+}
+
+.budget-table .btn-delete svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--text-light-grey);
+    transition: fill 0.2s ease;
+}
+
+.budget-table .btn-delete:hover svg {
+    fill: #EE5B5B;
+}
+
+
+/* 3. Tombol dan Modal */
+.btn-add {
+    background-color: var(--primary-purple);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-add:hover {
+    background-color: #6A5AE0;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1050;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    margin: auto;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h4 {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.modal-close-button {
+    background: none;
+    border: none;
+    font-size: 2em;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--text-light-grey);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-grey);
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.btn-modal-primary {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+    font-weight: 600;
+    background-color: var(--primary-purple);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-modal-primary:hover {
+    background-color: #6A5AE0;
+}
